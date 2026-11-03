@@ -44,7 +44,8 @@ p{margin:0;max-width:62ch}
 .m{position:relative;overflow:hidden;background:var(--notte)}
 .m video,.m img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
 /* nessun comando sui video: niente pulsante play, nemmeno quello che Safari mostra in risparmio energetico */
-.m video{pointer-events:none}
+.m video{pointer-events:none;opacity:0;transition:opacity .6s ease}
+.m video.on{opacity:1}
 video::-webkit-media-controls,video::-webkit-media-controls-panel,video::-webkit-media-controls-overlay-play-button,
 video::-webkit-media-controls-start-playback-button,video::-webkit-media-controls-play-button{display:none!important;-webkit-appearance:none;opacity:0}
 .v916{aspect-ratio:9/16;max-width:100%}
@@ -161,19 +162,40 @@ footer{padding-block:30px;display:flex;justify-content:space-between;flex-wrap:w
   .luogo .panel{grid-template-columns:minmax(0,1fr)}
   .tab td:first-child{white-space:normal;font-size:19px}
   .bar span:last-child{display:none}
+  h2{font-size:clamp(32px,9.4vw,46px)}
+  .hero h1{font-size:clamp(40px,11.2vw,58px)}
+  .lusso h2{font-size:clamp(38px,10.6vw,58px)}
+  p{text-wrap:pretty}
+  .cap{padding-block:56px}
+  /* tabelle: su telefono ogni riga diventa una scheda, l'etichetta sopra il valore */
+  .tab thead{display:none}
+  .tab,.tab tbody,.tab tr,.tab td{display:block;width:100%}
+  .tab tr{border-top:1px solid rgba(66,66,66,.18);padding:14px 0}
+  .tab tr:last-child{border-bottom:1px solid rgba(66,66,66,.18)}
+  .tab td,.tab tr:last-child td{border:0;padding:2px 0}
+  .tab td:first-child{font-size:21px;margin-bottom:4px}
+  .tab td[data-l]{display:flex;justify-content:space-between;gap:16px}
+  .tab td[data-l]::before{content:attr(data-l);font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--grigio);padding-top:4px}
+  /* piante: più grandi, si scorrono di lato */
+  .pianta{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .pianta img{width:230%;max-width:none}
+  .pianta::after{content:"Scorri la pianta  →";display:block;font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--grigio);padding:10px 4px 0;position:sticky;left:0}
+  .contatti dl{grid-template-columns:minmax(0,1fr);gap:2px}
+  .contatti dd{margin-bottom:14px}
+  .grptitle{padding-left:calc(var(--d) + 6px)}
 }
 </style>
 
 </head>
 <body>
 <div class="progress" id="progress"></div>
-<div class="bar"><span>Idyllium · Pienza</span><span id="chap">Pienza, Val d’Orcia</span></div>
+<div class="bar"><span>Idyllium · Pienza</span><span id="chap">Pienza, Val&nbsp;d’Orcia</span></div>
 
 <!-- 01 copertina -->
-<header class="full hero" data-chap="Pienza, Val d’Orcia">
+<header class="full hero" data-chap="Pienza, Val&nbsp;d’Orcia">
   <div class="m"><video data-src="media/hero.mp4" poster="media/hero.jpg" muted autoplay loop playsinline preload="none"></video></div>
   <div class="inner wrap" style="padding-left:max(22px,8vw)">
-    <span class="kicker">Pienza, Val d’Orcia</span>
+    <span class="kicker">Pienza, Val&nbsp;d’Orcia</span>
     <h1><span class="ln"><span>Idyllium nelle</span></span><span class="ln"><span>Scuderie del Papa</span></span></h1>
     <p>Ristorante e cocktail bar nelle scuderie quattrocentesche di Palazzo Piccolomini.</p>
   </div>
@@ -185,7 +207,7 @@ footer{padding-block:30px;display:flex;justify-content:space-between;flex-wrap:w
   <div class="m zoom r"><video data-src="media/luogo.mp4" poster="media/luogo.jpg" muted autoplay loop playsinline preload="none"></video></div>
   <div class="panel wrap" style="padding-inline:max(22px,7vw)">
     <div class="r"><span class="kicker">Il luogo</span><h2 style="margin-top:14px">Dentro Palazzo Piccolomini</h2></div>
-    <p class="r d1">Nel 1459 Papa Pio II rese la natia Corsignano la prima città ideale dell’Umanesimo, e le diede il proprio nome: Pienza. Palazzo Piccolomini fu la sua casa. Le scuderie quattrocentesche del palazzo, nobili ambienti in pietra antica affacciati sulla valle, ospitano oggi le sale di Idyllium. Un ristorante e cocktail bar con la sua terrazza sulla Val d’Orcia.</p>
+    <p class="r d1">Nel 1459 Papa Pio II rese la natia Corsignano la prima città ideale dell’Umanesimo, e le diede il proprio nome: Pienza. Palazzo Piccolomini fu la sua casa. Le scuderie quattrocentesche del palazzo, nobili ambienti in pietra antica affacciati sulla valle, ospitano oggi le sale di Idyllium. Un ristorante e cocktail bar con la sua terrazza sulla Val&nbsp;d’Orcia.</p>
   </div>
 </section>
 
@@ -193,9 +215,9 @@ footer{padding-block:30px;display:flex;justify-content:space-between;flex-wrap:w
 <section class="full lusso" data-chap="Il tempo">
   <div class="m zoom r"><video data-src="media/lusso.mp4" poster="media/lusso.jpg" muted autoplay loop playsinline preload="none"></video></div>
   <div class="inner wrap" style="padding-block:14vh">
-    <h2 class="r">Dove il Lusso è<br>il Tempo. Il Tuo.</h2>
+    <h2 class="r">Dove il Lusso è<br>il Tempo. Il&nbsp;Tuo.</h2>
     <hr class="r d1">
-    <p class="r d2">Idyllium, affacciato meravigliosamente sulla Val d’Orcia, nasce nelle scuderie quattrocentesche di Palazzo Piccolomini, nel centro storico di Pienza, patrimonio UNESCO. E racconta una cucina che nasce dalla ricchezza del territorio.</p>
+    <p class="r d2">Idyllium, affacciato meravigliosamente sulla Val&nbsp;d’Orcia, nasce nelle scuderie quattrocentesche di Palazzo Piccolomini, nel centro storico di Pienza, patrimonio UNESCO. E racconta una cucina che nasce dalla ricchezza del territorio.</p>
   </div>
 </section>
 
@@ -205,7 +227,7 @@ footer{padding-block:30px;display:flex;justify-content:space-between;flex-wrap:w
     <div class="txt">
       <span class="kicker r">La visione</span>
       <h2 class="r d1">La cucina</h2>
-      <p class="r d2">La cucina di Idyllium, guidata dallo Chef Luigi Perna, parte dall’origine: materie prime della nostra Val d’Orcia, ingredienti selezionati uno ad uno da produttori locali, nel rispetto delle stagioni e del Tempo, nostro vero manager.</p>
+      <p class="r d2">La cucina di Idyllium, guidata dallo Chef Luigi Perna, parte dall’origine: materie prime della nostra Val&nbsp;d’Orcia, ingredienti selezionati uno ad uno da produttori locali, nel rispetto delle stagioni e del Tempo, nostro vero manager.</p>
     </div>
     <div class="m v916 r"><video data-src="media/cucina_chef.mp4" poster="media/cucina_chef.jpg" muted autoplay loop playsinline preload="none"></video></div>
     <div class="m v916 r d1"><video data-src="media/cucina_piatto.mp4" poster="media/cucina_piatto.jpg" muted autoplay loop playsinline preload="none"></video></div>
@@ -218,7 +240,7 @@ footer{padding-block:30px;display:flex;justify-content:space-between;flex-wrap:w
     <div class="txt">
       <span class="kicker r">La visione</span>
       <h2 class="r d1">Mixology</h2>
-      <p class="r d2">I Signature di Idyllium, creati dal Mixologist Mattia Pozzi, compongono i profumi delle terre e dei cieli della Val d’Orcia. I Grandi Classici sono reinterpretati con i nostri vermouth ed essenze della flora della Valle. Una ricerca ed evoluzione, dove la tecnica internazionale si mette al servizio delle materie per offrire cocktail da molti definiti tanto unici quanto autentici.</p>
+      <p class="r d2">I Signature di Idyllium, creati dal Mixologist Mattia Pozzi, compongono i profumi delle terre e dei cieli della Val&nbsp;d’Orcia. I Grandi Classici sono reinterpretati con i nostri vermouth ed essenze della flora della Valle. Una ricerca ed evoluzione, dove la tecnica internazionale si mette al servizio delle materie per offrire cocktail da molti definiti tanto unici quanto autentici.</p>
       <p class="r d3"><em>Tra i primi 500 cocktail bar del mondo.</em></p>
     </div>
   </div>
@@ -236,7 +258,7 @@ footer{padding-block:30px;display:flex;justify-content:space-between;flex-wrap:w
       <span class="kicker r">Gli spazi</span>
       <h2 class="r d1">La terrazza</h2>
       <div class="rule r d1"></div>
-      <p class="r d2">Un invito alla Val d’Orcia. Il dehors perfetto a tutte le ore, con la brezza del giorno e le ombre rosse del tramonto. Perfetta per Lunch, Aperitivi e Cene ad effetto.</p>
+      <p class="r d2">Un invito alla Val&nbsp;d’Orcia. Il dehors perfetto a tutte le ore, con la brezza del giorno e le ombre rosse del tramonto. Perfetta per Lunch, Aperitivi e Cene ad effetto.</p>
     </div>
     <div class="m v916 r"><video data-src="media/terrazza.mp4" poster="media/terrazza.jpg" muted autoplay loop playsinline preload="none"></video></div>
   </div>
@@ -282,7 +304,7 @@ footer{padding-block:30px;display:flex;justify-content:space-between;flex-wrap:w
   <div class="split uno">
     <div class="txt">
       <span class="kicker r">Eventi</span>
-      <h2 class="r d1">Menu &amp; Set Up personalizzati</h2>
+      <h2 class="r d1">Menu &amp; Set&nbsp;Up personalizzati</h2>
       <p class="r d2">Il servizio si disegna sull’evento: la formula di sala e il percorso di menu si scelgono insieme, e lo stesso vale per l’allestimento della tavola.</p>
       <div class="tabwrap r d2"><table class="tab"><tbody>
         <tr><td>Formule di servizio</td><td>Servito e buffet</td></tr>
@@ -305,7 +327,7 @@ footer{padding-block:30px;display:flex;justify-content:space-between;flex-wrap:w
       <h2 class="r">Dettagli e percorsi per vivere il territorio.</h2>
       <div class="rule r d1"></div>
       <p class="r d1">Incontri pensati per chi cerca il tempo dell’ascolto, la profondità del territorio e il piacere di emozioni destinate a restare.</p>
-      <p class="r d2">Cinque esperienze: due nel palazzo e tre nella Val d’Orcia. Tutte le esperienze si concludono alla tavola di Idyllium.</p>
+      <p class="r d2">Cinque esperienze: due nel palazzo e tre nella Val&nbsp;d’Orcia. Tutte le esperienze si concludono alla tavola di Idyllium.</p>
     </div>
     <div class="m v916 r"><video data-src="media/esp_chef.mp4" poster="media/esp_chef.jpg" muted autoplay loop playsinline preload="none"></video></div>
   </div>
@@ -320,12 +342,12 @@ footer{padding-block:30px;display:flex;justify-content:space-between;flex-wrap:w
     <article class="card r d2"><div class="m v916"><video data-src="media/esp_team.mp4" poster="media/esp_team.jpg" muted autoplay loop playsinline preload="none"></video></div>
       <div class="cbody"><span class="num">03</span><h3>Team building</h3><span class="tag">Indoor · per le aziende</span><p>Un’esperienza pensata per i gruppi aziendali, curata e organizzata da Idyllium in ogni dettaglio.</p></div></article>
   </div>
-  <div class="grptitle"><span class="kicker r">Le esperienze</span><h2 class="r d1">Nella Valle</h2><p class="r d2">Nella Val d’Orcia, durante tutto l’anno.</p></div>
+  <div class="grptitle"><span class="kicker r">Le esperienze</span><h2 class="r d1">Nella Valle</h2><p class="r d2">Nella Val&nbsp;d’Orcia, durante tutto l’anno.</p></div>
   <div class="tre" style="padding-top:0">
     <article class="card r"><div class="m v916"><video data-src="media/esp_erbe.mp4" poster="media/esp_erbe.jpg" muted autoplay loop playsinline preload="none"></video></div>
-      <div class="cbody"><span class="num">04</span><h3>Erbe Eccelse della Val d’Orcia</h3><span class="tag">Outdoor · 3h30</span><p>Passeggiata botanica e raccolta di erbe spontanee. A seguire, pranzo o cena con menu dedicato.</p></div></article>
+      <div class="cbody"><span class="num">04</span><h3>Erbe Eccelse della Val&nbsp;d’Orcia</h3><span class="tag">Outdoor · 3h30</span><p>Passeggiata botanica e raccolta di erbe spontanee. A seguire, pranzo o cena con menu dedicato.</p></div></article>
     <article class="card r d1"><div class="m v916"><video data-src="media/esp_eden.mp4" poster="media/esp_eden.jpg" muted autoplay loop playsinline preload="none"></video></div>
-      <div class="cbody"><span class="num">05</span><h3>I Campi dell’Eden</h3><span class="tag">Outdoor · 3h30</span><p>Tra i sentieri della Val d’Orcia con Beppe Bussu, cheese master. Verticale di pecorini affinati con Brunello di Montalcino.</p></div></article>
+      <div class="cbody"><span class="num">05</span><h3>I Campi dell’Eden</h3><span class="tag">Outdoor · 3h30</span><p>Tra i sentieri della Val&nbsp;d’Orcia con Beppe Bussu, cheese master. Verticale di pecorini affinati con Brunello di Montalcino.</p></div></article>
     <article class="card r d2"><div class="m v916"><video data-src="media/esp_vigneti.mp4" poster="media/esp_vigneti.jpg" muted autoplay loop playsinline preload="none"></video></div>
       <div class="cbody"><span class="num">06</span><h3>Vigneti e vini in cima al mondo</h3><span class="tag">Outdoor · 3h30</span><p>Visita e tasting alla cantina Casanova di Neri a Montalcino, poi convivio a Pienza con lo Chef Perna.</p></div></article>
   </div>
@@ -337,7 +359,7 @@ footer{padding-block:30px;display:flex;justify-content:space-between;flex-wrap:w
     <div class="m v916 r"><video data-src="media/all_tavolata.mp4" poster="media/all_tavolata.jpg" muted autoplay loop playsinline preload="none"></video></div>
     <div class="txt centro">
       <span class="kicker r">Eventi</span>
-      <h2 class="r d1">Allestimenti<br>e Set Up</h2>
+      <h2 class="r d1">Allestimenti<br>e Set&nbsp;Up</h2>
       <div class="rule r d1"></div>
       <p class="r d2">Le scuderie di Palazzo Piccolomini si adattano a diverse configurazioni di ricevimento. La pietra storica delle sale e le grandi aperture sul paesaggio accolgono la messa in scena di matrimoni e cene speciali.</p>
     </div>
@@ -398,10 +420,10 @@ footer{padding-block:30px;display:flex;justify-content:space-between;flex-wrap:w
     <span class="kicker r">La struttura</span>
     <h2 class="r d1">Scheda</h2>
     <div class="tabwrap r d2"><table class="tab"><tbody>
-      <tr><td>Luogo</td><td>Pienza (SI), Val d’Orcia</td></tr>
+      <tr><td>Luogo</td><td>Pienza (SI), Val&nbsp;d’Orcia</td></tr>
       <tr><td>Indirizzo</td><td>Via Gozzante 67, 53026 Pienza</td></tr>
       <tr><td>Edificio</td><td>Scuderie quattrocentesche di Palazzo Piccolomini</td></tr>
-      <tr><td>Contesto</td><td>Pienza e la Val d’Orcia, doppio patrimonio UNESCO</td></tr>
+      <tr><td>Contesto</td><td>Pienza e la Val&nbsp;d’Orcia, doppio patrimonio UNESCO</td></tr>
       <tr><td>Formula</td><td>Ristorante e cocktail bar</td></tr>
       <tr><td>Cucina</td><td>Chef Luigi Perna</td></tr>
       <tr><td>Bar</td><td>Mixologist Mattia Pozzi, tra i primi 500 cocktail bar del mondo</td></tr>
@@ -469,7 +491,17 @@ footer{padding-block:30px;display:flex;justify-content:space-between;flex-wrap:w
   function sblocca(){ document.querySelectorAll('video[data-vis="1"]').forEach(avvia); }
   ['touchstart','pointerdown','keydown','wheel'].forEach(function(ev){ addEventListener(ev,sblocca,{passive:true}); });
   addEventListener('scroll',sblocca,{passive:true}); document.addEventListener('visibilitychange',function(){ if(!document.hidden) sblocca(); });
-  document.querySelectorAll('video[data-src]').forEach(function(v){vio.observe(v);});
+  // il video resta invisibile finché non gira davvero: sotto si vede il suo fotogramma, mai un pulsante play
+  document.querySelectorAll('video[data-src]').forEach(function(v){
+    var m=v.parentElement; if(v.poster) m.style.background='#1c1b19 url('+v.getAttribute('poster')+') center/cover no-repeat';
+    v.addEventListener('playing',function(){v.classList.add('on');});
+    vio.observe(v);
+  });
+  // su telefono le tabelle a più colonne mostrano l'intestazione accanto a ogni valore
+  document.querySelectorAll('.tab').forEach(function(t){
+    var h=[].map.call(t.querySelectorAll('thead th'),function(th){return th.textContent;});
+    if(h.length) t.querySelectorAll('tbody tr').forEach(function(tr){[].forEach.call(tr.children,function(td,i){ if(i) td.setAttribute('data-l',h[i]); });});
+  });
   // capitolo corrente e barra di avanzamento
   var chap=document.getElementById('chap'), bar=document.getElementById('progress');
   var cio=new IntersectionObserver(function(es){es.forEach(function(e){ if(e.isIntersecting) chap.textContent=e.target.dataset.chap; });},{rootMargin:'-45% 0px -50% 0px'});
