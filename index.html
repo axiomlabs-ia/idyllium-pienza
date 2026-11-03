@@ -1,0 +1,470 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Idyllium, ristorante e cocktail bar nelle scuderie quattrocentesche di Palazzo Piccolomini a Pienza: eventi ed esperienze in Val d'Orcia.">
+<meta property="og:title" content="Idyllium Pienza">
+<meta property="og:description" content="Eventi ed esperienze nelle scuderie quattrocentesche di Palazzo Piccolomini.">
+<meta property="og:image" content="media/hero.jpg">
+<style>html{color-scheme:light}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Idyllium Pienza</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&display=swap">
+<style>
+/* Layout: racconto verticale a capitoli; foto e video sempre in 9:16 con la stessa distanza (--d) fra loro e dai bordi,
+   fondi pieni a tutto schermo per i momenti d'apertura. Un solo aspetto, chiaro, come la brochure. */
+:root{
+  --panna:#f3ecdf; --pietra:#e7decc; --inchiostro:#424242; --testo:#58595b; --grigio:#898989; --rosso:#a33a2b;
+  --notte:#1c1b19; --velo:rgba(20,18,16,.55);
+  --display:"Cormorant Garamond","GT Sectra Display",Georgia,serif;
+  --corpo:"Helvetica Neue",Helvetica,Arial,sans-serif;
+  --d:clamp(10px,1.27vw,18px);
+  --gutter:max(16px,env(safe-area-inset-left,0px));
+}
+html{scroll-behavior:smooth}
+body{background:var(--panna);color:var(--testo);font-family:var(--corpo);font-weight:300;font-size:17px;line-height:1.65;
+  padding-left:max(0px,env(safe-area-inset-left,0px));padding-right:max(0px,env(safe-area-inset-right,0px))}
+*{box-sizing:border-box}
+h1,h2,h3{font-family:var(--display);font-weight:300;color:var(--inchiostro);margin:0;line-height:1.04;text-wrap:balance}
+h2{font-size:clamp(40px,5.4vw,78px)}
+h3{font-size:clamp(26px,2.3vw,34px)}
+p{margin:0;max-width:62ch}
+.kicker{font-family:var(--corpo);font-weight:400;font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:var(--grigio)}
+.wrap{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+
+/* barra fissa */
+.bar{position:fixed;inset:0 0 auto;z-index:20;display:flex;justify-content:space-between;align-items:center;
+  padding:calc(14px + env(safe-area-inset-top,0px)) max(22px,env(safe-area-inset-right,0px)) 14px max(22px,env(safe-area-inset-left,0px));
+  color:var(--panna);mix-blend-mode:difference;pointer-events:none}
+.bar span{font-size:11px;letter-spacing:.32em;text-transform:uppercase;font-weight:400}
+.progress{position:fixed;left:0;top:0;height:2px;width:100%;transform-origin:0 50%;transform:scaleX(0);background:var(--rosso);z-index:21}
+
+/* media */
+.m{position:relative;overflow:hidden;background:var(--notte)}
+.m video,.m img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.v916{aspect-ratio:9/16;max-width:100%}
+
+/* aperture a tutto schermo */
+.full{position:relative;min-height:100svh;display:grid;align-items:end;color:var(--panna);overflow:hidden}
+.full .m{position:absolute;inset:0}
+.full .m::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(20,18,16,.78),rgba(20,18,16,.15) 55%,rgba(20,18,16,.35))}
+.full .inner{position:relative;padding-block:0 clamp(48px,9vh,110px)}
+.full h1,.full h2{color:var(--panna)}
+.full .kicker{color:var(--pietra)}
+.hero h1{font-size:clamp(54px,8.4vw,128px);margin-block:18px 26px}
+.hero p{color:var(--pietra);font-size:19px}
+.hero .kicker{font-size:clamp(13px,1.3vw,18px);letter-spacing:.38em}
+.scroll-hint{position:absolute;right:max(22px,env(safe-area-inset-right,0px));bottom:28px;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--pietra)}
+.scroll-hint::after{content:"";display:block;width:1px;height:46px;background:var(--pietra);margin:12px auto 0;animation:drip 2.2s ease-in-out infinite}
+@keyframes drip{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+.luogo{align-items:end}
+.luogo .panel{position:relative;background:rgba(28,27,25,.72);backdrop-filter:blur(2px);padding-block:clamp(36px,6vh,64px);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:clamp(24px,5vw,90px);align-items:start}
+.luogo .panel p{color:var(--pietra)}
+.lusso{align-items:center;text-align:center}
+.lusso .m::after{background:rgba(20,18,16,.42)}
+.lusso h2{font-size:clamp(52px,8vw,124px)}
+.lusso p{margin:28px auto 0;color:var(--pietra)}
+.lusso hr{width:90px;border:0;border-top:1px solid rgba(243,236,223,.6);margin:34px auto 0}
+
+/* capitoli con testo e video 9:16 */
+.cap{padding-block:clamp(70px,11vh,140px)}
+.split{display:grid;gap:var(--d);align-items:center;padding-inline:var(--d)}
+.split .txt{display:grid;gap:22px;align-content:center;padding-inline:clamp(16px,5vw,80px);min-width:0}
+.split.dx{grid-template-columns:minmax(0,1fr) repeat(2,minmax(0,31.6vw))}
+.split.sx{grid-template-columns:repeat(2,minmax(0,31.6vw)) minmax(0,1fr)}
+.split.uno{grid-template-columns:minmax(0,1fr) minmax(0,31.6vw)}
+.split.uno-sx{grid-template-columns:minmax(0,31.6vw) minmax(0,1fr)}
+.cap.bleed{padding-block:var(--d)}
+.txt .rule{width:90px;height:1px;background:var(--inchiostro);opacity:.35}
+.txt em{font-style:italic}
+.tre{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--d);padding:var(--d)}
+
+/* tabelle */
+.tab{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+.tab th{font-weight:400;font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--grigio);text-align:left;padding:0 12px 12px 0}
+.tab td{border-top:1px solid rgba(66,66,66,.18);padding:15px 12px 15px 0;vertical-align:top}
+.tab td:first-child{font-family:var(--display);font-size:22px;color:var(--inchiostro);font-weight:400;white-space:nowrap}
+.tab tr:last-child td{border-bottom:1px solid rgba(66,66,66,.18)}
+.tabwrap{overflow-x:auto;min-width:0}
+.nota{font-size:14.5px;color:var(--testo)}
+
+/* pianta */
+.pianta{padding:var(--d)}
+.pianta img{width:100%;height:auto;display:block}
+
+/* esperienze */
+.card{position:relative;color:var(--panna)}
+.card .m::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(18,16,14,.88),rgba(18,16,14,.1) 58%)}
+.card .cbody{position:absolute;inset:auto 0 0;padding:clamp(18px,2.2vw,30px);display:grid;gap:8px}
+.card .num{font-family:var(--display);font-size:clamp(44px,4.2vw,62px);line-height:1}
+.card h3{color:var(--panna)}
+.card .tag{font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--pietra);font-weight:400}
+.card p{font-size:14.5px;color:var(--panna)}
+.grptitle{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 28px;padding:clamp(48px,8vh,90px) var(--d) 26px calc(var(--d) + clamp(16px,2.2vw,30px))}
+.grptitle p{color:var(--testo)}
+
+/* centro allestimenti */
+.centro{text-align:center}
+.centro p,.centro .rule{margin-inline:auto}
+
+/* contatti */
+.contatti{align-items:center}
+.contatti dl{display:grid;grid-template-columns:auto minmax(0,1fr);gap:14px 34px;margin:34px 0 0}
+.contatti dt{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--pietra);font-weight:400;padding-top:5px}
+.contatti dd{margin:0;font-family:var(--display);font-size:clamp(22px,2.2vw,30px);color:var(--panna);user-select:all}
+.contatti dd a{color:inherit;text-decoration:none;border-bottom:1px solid rgba(243,236,223,.4)}
+footer{padding-block:30px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--grigio)}
+
+/* comparsa allo scroll: solo per ciò che sta sotto la prima schermata */
+:root{--ease:cubic-bezier(.16,.84,.24,1)}
+.js .r{opacity:0;transform:translateY(22px);transition:opacity 1.2s var(--ease),transform 1.2s var(--ease),filter 1.2s var(--ease),clip-path 1.4s var(--ease),letter-spacing 1.6s var(--ease)}
+.js .r.in{opacity:1;transform:none}
+/* titoli: escono da una maschera, come una riga che sale dalla pagina */
+.js h2.r{opacity:1;padding-block:.06em .14em;clip-path:inset(0 0 100% 0);transform:translateY(.45em)}
+.js h2.r.in{clip-path:inset(0 0 0 0);transform:none}
+/* paragrafi: dalla sfocatura al nitido */
+.js p.r,.js dl.r,.js .tabwrap.r{filter:blur(7px);transform:translateY(16px)}
+.js p.r.in,.js dl.r.in,.js .tabwrap.r.in{filter:none;transform:none}
+/* sopratitoli: le lettere si avvicinano */
+.js .kicker.r{letter-spacing:.7em}
+.js .kicker.r.in{letter-spacing:.32em}
+/* filetti: si disegnano */
+.js .rule.r{opacity:1;transform:scaleX(0);transform-origin:0 50%}
+.js .centro .rule.r{transform-origin:50% 50%}
+.js .rule.r.in{transform:scaleX(1)}
+.js hr.r{transform:scaleX(0)}.js hr.r.in{transform:scaleX(1)}
+/* foto e video: si aprono come un sipario */
+.js .m.r,.js .card.r,.js .pianta.r{opacity:1;transform:none;clip-path:inset(10% 6% 10% 6%)}
+.js .m.r.in,.js .card.r.in,.js .pianta.r.in{clip-path:inset(0 0 0 0)}
+.js .r.d1{transition-delay:.14s}.js .r.d2{transition-delay:.3s}.js .r.d3{transition-delay:.46s}
+.js .zoom video,.js .zoom img{transform:scale(1.12);transition:transform 2.4s cubic-bezier(.2,.7,.2,1)}
+.js .zoom.in video,.js .zoom.in img{transform:scale(1)}
+.hero h1 .ln{display:block;overflow:hidden}
+.hero h1 .ln span{display:inline-block;animation:sale 1.4s cubic-bezier(.2,.7,.2,1) both}
+.hero h1 .ln:nth-child(2) span{animation-delay:.15s}
+@keyframes sale{from{transform:translateY(105%)}to{transform:none}}
+@media (prefers-reduced-motion:reduce){.js .r,.js .zoom video,.js .zoom img{opacity:1;transform:none;transition:none;filter:none;clip-path:none;letter-spacing:.32em}.hero h1 .ln span,.scroll-hint::after{animation:none}}
+
+/* telefono */
+@media (max-width:860px){
+  .split.dx,.split.sx,.split.uno,.split.uno-sx{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .split .txt{grid-column:1/-1;padding:8px 6px 26px;order:-1}
+  .split.uno .m,.split.uno-sx .m{grid-column:1/-1;max-width:420px;justify-self:center;width:100%}
+  .tre{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:78%;overflow-x:auto;scroll-snap-type:x mandatory}
+  .tre>*{scroll-snap-align:center}
+  .luogo .panel{grid-template-columns:minmax(0,1fr)}
+  .tab td:first-child{white-space:normal;font-size:19px}
+  .bar span:last-child{display:none}
+}
+</style>
+
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<div class="bar"><span>Idyllium · Pienza</span><span id="chap">Pienza, Val d’Orcia</span></div>
+
+<!-- 01 copertina -->
+<header class="full hero" data-chap="Pienza, Val d’Orcia">
+  <div class="m"><video data-src="media/hero.mp4" poster="media/hero.jpg" muted loop playsinline preload="none"></video></div>
+  <div class="inner wrap" style="padding-left:max(22px,8vw)">
+    <span class="kicker">Pienza, Val d’Orcia</span>
+    <h1><span class="ln"><span>Idyllium nelle</span></span><span class="ln"><span>Scuderie del Papa</span></span></h1>
+    <p>Ristorante e cocktail bar nelle scuderie quattrocentesche di Palazzo Piccolomini.</p>
+  </div>
+  <span class="scroll-hint">Scorri</span>
+</header>
+
+<!-- 02 il luogo -->
+<section class="full luogo" id="luogo" data-chap="Il luogo">
+  <div class="m zoom r"><video data-src="media/luogo.mp4" poster="media/luogo.jpg" muted loop playsinline preload="none"></video></div>
+  <div class="panel wrap" style="padding-inline:max(22px,7vw)">
+    <div class="r"><span class="kicker">Il luogo</span><h2 style="margin-top:14px">Dentro Palazzo Piccolomini</h2></div>
+    <p class="r d1">Nel 1459 Papa Pio II rese la natia Corsignano la prima città ideale dell’Umanesimo, e le diede il proprio nome: Pienza. Palazzo Piccolomini fu la sua casa. Le scuderie quattrocentesche del palazzo, nobili ambienti in pietra antica affacciati sulla valle, ospitano oggi le sale di Idyllium. Un ristorante e cocktail bar con la sua terrazza sulla Val d’Orcia.</p>
+  </div>
+</section>
+
+<!-- 03 il lusso del tempo -->
+<section class="full lusso" data-chap="Il tempo">
+  <div class="m zoom r"><video data-src="media/lusso.mp4" poster="media/lusso.jpg" muted loop playsinline preload="none"></video></div>
+  <div class="inner wrap" style="padding-block:14vh">
+    <h2 class="r">Dove il Lusso è<br>il Tempo. Il Tuo.</h2>
+    <hr class="r d1">
+    <p class="r d2">Idyllium, affacciato meravigliosamente sulla Val d’Orcia, nasce nelle scuderie quattrocentesche di Palazzo Piccolomini, nel centro storico di Pienza, patrimonio UNESCO. E racconta una cucina che nasce dalla ricchezza del territorio.</p>
+  </div>
+</section>
+
+<!-- 04 la visione -->
+<section class="cap bleed" id="visione" data-chap="La visione">
+  <div class="split dx">
+    <div class="txt">
+      <span class="kicker r">La visione</span>
+      <h2 class="r d1">La cucina</h2>
+      <p class="r d2">La cucina di Idyllium, guidata dallo Chef Luigi Perna, parte dall’origine: materie prime della nostra Val d’Orcia, ingredienti selezionati uno ad uno da produttori locali, nel rispetto delle stagioni e del Tempo, nostro vero manager.</p>
+    </div>
+    <div class="m v916 r"><video data-src="media/cucina_chef.mp4" poster="media/cucina_chef.jpg" muted loop playsinline preload="none"></video></div>
+    <div class="m v916 r d1"><video data-src="media/cucina_piatto.mp4" poster="media/cucina_piatto.jpg" muted loop playsinline preload="none"></video></div>
+  </div>
+</section>
+<section class="cap bleed" data-chap="La visione">
+  <div class="split sx">
+    <div class="m v916 r"><video data-src="media/mix_barman.mp4" poster="media/mix_barman.jpg" muted loop playsinline preload="none"></video></div>
+    <div class="m v916 r d1"><video data-src="media/mix_spritz.mp4" poster="media/mix_spritz.jpg" muted loop playsinline preload="none"></video></div>
+    <div class="txt">
+      <span class="kicker r">La visione</span>
+      <h2 class="r d1">Mixology</h2>
+      <p class="r d2">I Signature di Idyllium, creati dal Mixologist Mattia Pozzi, compongono i profumi delle terre e dei cieli della Val d’Orcia. I Grandi Classici sono reinterpretati con i nostri vermouth ed essenze della flora della Valle. Una ricerca ed evoluzione, dove la tecnica internazionale si mette al servizio delle materie per offrire cocktail da molti definiti tanto unici quanto autentici.</p>
+      <p class="r d3"><em>Tra i primi 500 cocktail bar del mondo.</em></p>
+    </div>
+  </div>
+</section>
+
+<!-- 05 la pianta di Pienza -->
+<section class="cap" id="pianta" data-chap="La pianta di Pienza" style="padding-bottom:20px">
+  <div class="pianta r"><img src="img/pianta_pienza.jpg" alt="Pianta di Pienza dal Catasto Generale Toscano (Leopoldino), 1820–1830 circa, con Idyllium, Palazzo Piccolomini, il Duomo, Piazza Pio II, le porte e i parcheggi" loading="lazy"></div>
+</section>
+
+<!-- 06 gli spazi -->
+<section class="cap bleed" id="spazi" data-chap="Gli spazi">
+  <div class="split uno">
+    <div class="txt">
+      <span class="kicker r">Gli spazi</span>
+      <h2 class="r d1">La terrazza</h2>
+      <div class="rule r d1"></div>
+      <p class="r d2">Un invito alla Val d’Orcia. Il dehors perfetto a tutte le ore, con la brezza del giorno e le ombre rosse del tramonto. Perfetta per Lunch, Aperitivi e Cene ad effetto.</p>
+    </div>
+    <div class="m v916 r"><video data-src="media/terrazza.mp4" poster="media/terrazza.jpg" muted loop playsinline preload="none"></video></div>
+  </div>
+</section>
+<section class="cap bleed" data-chap="Gli spazi">
+  <div class="split sx">
+    <div class="m v916 r"><img src="img/sala_1171.jpg" alt="Il bancone del bar nella sala in pietra" loading="lazy"></div>
+    <div class="m v916 r d1"><img src="img/sala_1151.jpg" alt="Tavolo apparecchiato davanti al camino" loading="lazy"></div>
+    <div class="txt">
+      <span class="kicker r">Gli spazi</span>
+      <h2 class="r d1">Le sale interne</h2>
+      <p class="r d2">In pietra originale del Quattrocento, con archi, soffitti a volta e grandi aperture sul paesaggio.</p>
+    </div>
+  </div>
+</section>
+<section class="tre" data-chap="Gli spazi">
+  <div class="m v916 r"><img src="img/sala_1139.jpg" alt="La sala con la colonna in pietra" loading="lazy"></div>
+  <div class="m v916 r d1"><img src="img/sala_1147.jpg" alt="Il passaggio ad arco tra le sale" loading="lazy"></div>
+  <div class="m v916 r d2"><img src="img/sala_1156.jpg" alt="Il camino e la sala apparecchiata" loading="lazy"></div>
+</section>
+<section class="cap wrap" data-chap="Gli spazi">
+  <div style="max-width:1180px;margin:0 auto;display:grid;gap:30px">
+    <span class="kicker r">Gli spazi</span>
+    <h2 class="r d1">Capienze e allestimenti</h2>
+    <p class="r d2">Le due sale in pietra, Ammannati e Forteguerri, comunicano fra loro e si aprono sulla terrazza Gozzante. Ogni sala si prenota da sola, le due insieme, oppure insieme alla terrazza: in esclusiva, e un solo evento al giorno.</p>
+    <div class="tabwrap r d2"><table class="tab">
+      <thead><tr><th>Spazio</th><th>Superficie</th><th>Placé</th><th>Standing</th></tr></thead>
+      <tbody>
+        <tr><td>La sala Ammannati</td><td>55 mq</td><td>20</td><td>Su richiesta</td></tr>
+        <tr><td>La sala Forteguerri</td><td>60 mq</td><td>20</td><td>Su richiesta</td></tr>
+        <tr><td>Ammannati + Forteguerri</td><td>115 mq</td><td>40</td><td>Su richiesta</td></tr>
+        <tr><td>Le due sale + la terrazza</td><td>175 mq</td><td>100</td><td>250</td></tr>
+      </tbody></table></div>
+    <p class="nota r">La terrazza non è prenotabile singolarmente, ma unitamente a una delle due sale. Volte in pietra alte fino a 6 metri.</p>
+  </div>
+</section>
+<section data-chap="Gli spazi" style="padding-bottom:40px">
+  <div class="pianta r"><img src="img/pianta_sale.jpg" alt="La pianta: la sala Ammannati 55 mq, la sala Forteguerri 60 mq, l’arco di comunicazione tra le sale, la terrazza Gozzante 60 mq" loading="lazy"></div>
+</section>
+
+<!-- 07 menu e set up -->
+<section class="cap bleed" id="menu" data-chap="Menu e set up">
+  <div class="split uno">
+    <div class="txt">
+      <span class="kicker r">Eventi</span>
+      <h2 class="r d1">Menu &amp; Set Up personalizzati</h2>
+      <p class="r d2">Il servizio si disegna sull’evento: la formula di sala e il percorso di menu si scelgono insieme, e lo stesso vale per l’allestimento della tavola.</p>
+      <div class="tabwrap r d2"><table class="tab"><tbody>
+        <tr><td>Formule di servizio</td><td>Servito e buffet</td></tr>
+        <tr><td>Tipologie di menu</td><td>Tre o quattro portate, degustazione, percorsi personalizzati</td></tr>
+        <tr><td>Proposte</td><td>Silver, Gold e Platinum, a partire da 120 € a persona</td></tr>
+        <tr><td>Minimo garantito</td><td>Richiesto</td></tr>
+        <tr><td>Open bar</td><td>Disponibile</td></tr>
+        <tr><td>Allergie e intolleranze</td><td>Gestite su richiesta</td></tr>
+        <tr><td>Fiori e musica</td><td>Allestimenti floreali e musica dal vivo: strumentisti, orchestra, musica soul</td></tr>
+      </tbody></table></div>
+    </div>
+    <div class="m v916 r"><video data-src="media/menu_chef.mp4" poster="media/menu_chef.jpg" muted loop playsinline preload="none"></video></div>
+  </div>
+</section>
+
+<!-- 08 le esperienze -->
+<section class="cap bleed" id="esperienze" data-chap="Le esperienze">
+  <div class="split uno">
+    <div class="txt">
+      <h2 class="r">Dettagli e percorsi per vivere il territorio.</h2>
+      <div class="rule r d1"></div>
+      <p class="r d1">Incontri pensati per chi cerca il tempo dell’ascolto, la profondità del territorio e il piacere di emozioni destinate a restare.</p>
+      <p class="r d2">Cinque esperienze: due nel palazzo e tre nella Val d’Orcia. Tutte le esperienze si concludono alla tavola di Idyllium.</p>
+    </div>
+    <div class="m v916 r"><video data-src="media/esp_chef.mp4" poster="media/esp_chef.jpg" muted loop playsinline preload="none"></video></div>
+  </div>
+</section>
+<section data-chap="Le esperienze">
+  <div class="grptitle"><span class="kicker r">Le esperienze</span><h2 class="r d1">Dentro il Palazzo</h2><p class="r d2">Nel palazzo di Pio II e nelle sue scuderie.</p></div>
+  <div class="tre" style="padding-top:0">
+    <article class="card r"><div class="m v916"><video data-src="media/esp_papa.mp4" poster="media/esp_papa.jpg" muted loop playsinline preload="none"></video></div>
+      <div class="cbody"><span class="num">01</span><h3>Il Papa della Luce</h3><span class="tag">Indoor · 2h30</span><p>Visita guidata di Pienza con uno storico dell’arte. Il racconto di Papa Pio II e della sua città ideale. A seguire, pranzo da Idyllium.</p></div></article>
+    <article class="card r d1"><div class="m v916"><video data-src="media/esp_mixology.mp4" poster="media/esp_mixology.jpg" muted loop playsinline preload="none"></video></div>
+      <div class="cbody"><span class="num">02</span><h3>Fine Mixology nelle Scuderie del Papa</h3><span class="tag">Indoor · 2h30 · fino a 8 ospiti</span><p>Cocktail masterclass con il Master Bartender. Transfer con chauffeur su richiesta, anche con partenza da Roma.</p></div></article>
+    <article class="card r d2"><div class="m v916"><video data-src="media/esp_team.mp4" poster="media/esp_team.jpg" muted loop playsinline preload="none"></video></div>
+      <div class="cbody"><span class="num">03</span><h3>Team building</h3><span class="tag">Indoor · per le aziende</span><p>Un’esperienza pensata per i gruppi aziendali, curata e organizzata da Idyllium in ogni dettaglio.</p></div></article>
+  </div>
+  <div class="grptitle"><span class="kicker r">Le esperienze</span><h2 class="r d1">Nella Valle</h2><p class="r d2">Nella Val d’Orcia, durante tutto l’anno.</p></div>
+  <div class="tre" style="padding-top:0">
+    <article class="card r"><div class="m v916"><video data-src="media/esp_erbe.mp4" poster="media/esp_erbe.jpg" muted loop playsinline preload="none"></video></div>
+      <div class="cbody"><span class="num">04</span><h3>Erbe Eccelse della Val d’Orcia</h3><span class="tag">Outdoor · 3h30</span><p>Passeggiata botanica e raccolta di erbe spontanee. A seguire, pranzo o cena con menu dedicato.</p></div></article>
+    <article class="card r d1"><div class="m v916"><video data-src="media/esp_eden.mp4" poster="media/esp_eden.jpg" muted loop playsinline preload="none"></video></div>
+      <div class="cbody"><span class="num">05</span><h3>I Campi dell’Eden</h3><span class="tag">Outdoor · 3h30</span><p>Tra i sentieri della Val d’Orcia con Beppe Bussu, cheese master. Verticale di pecorini affinati con Brunello di Montalcino.</p></div></article>
+    <article class="card r d2"><div class="m v916"><video data-src="media/esp_vigneti.mp4" poster="media/esp_vigneti.jpg" muted loop playsinline preload="none"></video></div>
+      <div class="cbody"><span class="num">06</span><h3>Vigneti e vini in cima al mondo</h3><span class="tag">Outdoor · 3h30</span><p>Visita e tasting alla cantina Casanova di Neri a Montalcino, poi convivio a Pienza con lo Chef Perna.</p></div></article>
+  </div>
+</section>
+
+<!-- 09 allestimenti -->
+<section class="cap bleed" id="allestimenti" data-chap="Allestimenti e Set Up">
+  <div class="split" style="grid-template-columns:minmax(0,31.6vw) minmax(0,1fr) minmax(0,31.6vw)">
+    <div class="m v916 r"><video data-src="media/all_tavolata.mp4" poster="media/all_tavolata.jpg" muted loop playsinline preload="none"></video></div>
+    <div class="txt centro">
+      <span class="kicker r">Eventi</span>
+      <h2 class="r d1">Allestimenti<br>e Set Up</h2>
+      <div class="rule r d1"></div>
+      <p class="r d2">Le scuderie di Palazzo Piccolomini si adattano a diverse configurazioni di ricevimento. La pietra storica delle sale e le grandi aperture sul paesaggio accolgono la messa in scena di matrimoni e cene speciali.</p>
+    </div>
+    <div class="m v916 r d1"><video data-src="media/all_ospiti.mp4" poster="media/all_ospiti.jpg" muted loop playsinline preload="none"></video></div>
+  </div>
+</section>
+<section class="tre" data-chap="Allestimenti e Set Up">
+  <div class="m v916 r"><video data-src="media/gal_sposa.mp4" poster="media/gal_sposa.jpg" muted loop playsinline preload="none"></video></div>
+  <div class="m v916 r d1"><video data-src="media/gal_lucine.mp4" poster="media/gal_lucine.jpg" muted loop playsinline preload="none"></video></div>
+  <div class="m v916 r d2"><video data-src="media/gal_cornice.mp4" poster="media/gal_cornice.jpg" muted loop playsinline preload="none"></video></div>
+</section>
+
+<!-- 10 distanze -->
+<section class="cap wrap" id="distanze" data-chap="Distanze e collegamenti">
+  <div style="max-width:1180px;margin:0 auto;display:grid;gap:30px">
+    <span class="kicker r">La posizione</span>
+    <h2 class="r d1">Distanze e tempi di percorrenza</h2>
+    <p class="r d2">I tempi sono calcolati in automobile su percorso stradale.</p>
+    <div class="tabwrap r d2"><table class="tab">
+      <thead><tr><th>Destinazione</th><th>Distanza</th><th>In auto</th></tr></thead>
+      <tbody>
+        <tr><td>Stazione di Chiusi–Chianciano Terme</td><td>40 km</td><td>40 min</td></tr>
+        <tr><td>Uscita A1 Chiusi–Chianciano Terme</td><td>35 km</td><td>35 min</td></tr>
+        <tr><td>Siena</td><td>55 km</td><td>1 h</td></tr>
+        <tr><td>Perugia</td><td>85 km</td><td>1 h 15</td></tr>
+        <tr><td>Firenze</td><td>120 km</td><td>1 h 45</td></tr>
+        <tr><td>Aeroporto di Firenze Peretola</td><td>135 km</td><td>1 h 50</td></tr>
+        <tr><td>Roma</td><td>190 km</td><td>2 h 20</td></tr>
+        <tr><td>Aeroporto di Roma Fiumicino</td><td>200 km</td><td>2 h 25</td></tr>
+        <tr><td>Pista per elicottero</td><td>Nei dintorni</td><td>—</td></tr>
+      </tbody></table></div>
+  </div>
+</section>
+
+<!-- 11 informazioni utili -->
+<section class="cap bleed" id="info" data-chap="Informazioni utili">
+  <div class="split uno">
+    <div class="txt">
+      <span class="kicker r">Informazioni utili</span>
+      <h2 class="r d1">Da sapere</h2>
+      <div class="tabwrap r d2"><table class="tab"><tbody>
+        <tr><td>Orari e musica</td><td>Fino a mezzanotte circa, nei limiti del regolamento comunale</td></tr>
+        <tr><td>Esclusiva e fornitori</td><td>La struttura è riservabile in esclusiva. Non sono ammessi fornitori esterni</td></tr>
+        <tr><td>Se piove</td><td>Set Up nelle sale interne; sulla terrazza è disponibile un cover set, nel rispetto del contesto storico</td></tr>
+        <tr><td>Parcheggio e accesso</td><td>Il centro storico è zona a traffico limitato. Parcheggio custodito a 800 metri con disponibilità di navetta. Parcheggio pubblico a 200 metri</td></tr>
+        <tr><td>Pullman e fornitori</td><td>Sosta al di fuori del paese</td></tr>
+        <tr><td>Pernottamento</td><td>Disponibili strutture in zona</td></tr>
+        <tr><td>Animali</td><td>Ammessi</td></tr>
+      </tbody></table></div>
+    </div>
+    <div class="m v916 r"><video data-src="media/sapere_tavolata.mp4" poster="media/sapere_tavolata.jpg" muted loop playsinline preload="none"></video></div>
+  </div>
+</section>
+
+<!-- 12 scheda -->
+<section class="cap wrap" id="scheda" data-chap="La scheda">
+  <div style="max-width:1180px;margin:0 auto;display:grid;gap:30px">
+    <span class="kicker r">La struttura</span>
+    <h2 class="r d1">Scheda</h2>
+    <div class="tabwrap r d2"><table class="tab"><tbody>
+      <tr><td>Luogo</td><td>Pienza (SI), Val d’Orcia</td></tr>
+      <tr><td>Indirizzo</td><td>Via Gozzante 67, 53026 Pienza</td></tr>
+      <tr><td>Edificio</td><td>Scuderie quattrocentesche di Palazzo Piccolomini</td></tr>
+      <tr><td>Contesto</td><td>Pienza e la Val d’Orcia, doppio patrimonio UNESCO</td></tr>
+      <tr><td>Formula</td><td>Ristorante e cocktail bar</td></tr>
+      <tr><td>Cucina</td><td>Chef Luigi Perna</td></tr>
+      <tr><td>Bar</td><td>Mixologist Mattia Pozzi, tra i primi 500 cocktail bar del mondo</td></tr>
+      <tr><td>Spazi</td><td>Due sale interne e la terrazza</td></tr>
+      <tr><td>Esperienze</td><td>Indoor e outdoor, tutto l’anno</td></tr>
+      <tr><td>Capienza massima</td><td>100 ospiti placé, 250 standing</td></tr>
+      <tr><td>Stagionalità</td><td>Tutto l’anno, chiusi a febbraio</td></tr>
+      <tr><td>Disponibilità eventi</td><td>Un unico evento al giorno, 7 giorni su 7</td></tr>
+      <tr><td>Pernottamento</td><td>Non disponibile in sede, collegamento con strutture in zona</td></tr>
+    </tbody></table></div>
+  </div>
+</section>
+
+<!-- 13 contatti -->
+<section class="full contatti" id="contatti" data-chap="Contatti">
+  <div class="m zoom r"><video data-src="media/contatti.mp4" poster="media/contatti.jpg" muted loop playsinline preload="none"></video></div>
+  <div class="inner wrap" style="padding:14vh max(22px,8vw)">
+    <span class="kicker r">Contatti</span>
+    <h2 class="r d1" style="margin-top:14px">Parliamone</h2>
+    <p class="r d2" style="color:var(--pietra);margin-top:18px">Idyllium, Via Gozzante 67, 53026 Pienza (SI).</p>
+    <dl class="r d3">
+      <dt>Telefono</dt><dd>+39 380 1018031</dd>
+      <dt>Email</dt><dd>info@idylliumpienza.it</dd>
+      <dt>Sito</dt><dd><a href="https://idylliumpienza.it" target="_blank" rel="noopener">idylliumpienza.it</a></dd>
+      <dt>Sopralluoghi</dt><dd style="font-size:clamp(18px,1.7vw,24px)">Siamo lieti di ospitarvi per un sopralluogo, su appuntamento.</dd>
+    </dl>
+  </div>
+</section>
+<footer class="wrap"><span>Idyllium · Pienza</span><span>Pianta: Catasto Generale Toscano (Leopoldino), Regione Toscana, progetto CaStoRe</span></footer>
+
+<script>
+(function(){
+  var doc=document.documentElement, rid=window.requestAnimationFrame||function(f){return setTimeout(f,16)};
+  var reduced=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(!('IntersectionObserver' in window)){
+    document.querySelectorAll('video[data-src]').forEach(function(v){v.src=v.dataset.src;});
+    return;
+  }
+  // comparse: si nascondono solo gli elementi che stanno sotto la prima schermata
+  doc.classList.add('js');
+  var vh=innerHeight;
+  document.querySelectorAll('.r').forEach(function(el){ if(el.getBoundingClientRect().top<vh*.92) el.classList.add('in'); });
+  // un titolo nascosto dalla maschera non risulta mai visibile all'observer: si osserva il suo contenitore
+  var bersaglio=new Map();
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){ if(e.isIntersecting){(bersaglio.get(e.target)||[]).forEach(function(el){el.classList.add('in');}); io.unobserve(e.target);} });},{rootMargin:'0px 0px -8% 0px',threshold:0});
+  document.querySelectorAll('.r:not(.in)').forEach(function(el){
+    var t=(el.tagName==='H2'||el.classList.contains('m')||el.classList.contains('card')||el.classList.contains('pianta'))?el.parentElement:el;
+    if(!bersaglio.has(t)){bersaglio.set(t,[]); io.observe(t);} bersaglio.get(t).push(el);
+  });
+  // video: si caricano vicino allo schermo e girano solo quando si vedono
+  var vio=new IntersectionObserver(function(es){es.forEach(function(e){
+    var v=e.target;
+    if(e.isIntersecting){
+      if(!v.src&&v.dataset.src){v.src=v.dataset.src;}
+      if(!reduced){var p=v.play(); if(p&&p.catch)p.catch(function(){});}
+    } else if(!v.paused){v.pause();}
+  });},{rootMargin:'200px 0px',threshold:.01});
+  document.querySelectorAll('video[data-src]').forEach(function(v){vio.observe(v);});
+  // capitolo corrente e barra di avanzamento
+  var chap=document.getElementById('chap'), bar=document.getElementById('progress');
+  var cio=new IntersectionObserver(function(es){es.forEach(function(e){ if(e.isIntersecting) chap.textContent=e.target.dataset.chap; });},{rootMargin:'-45% 0px -50% 0px'});
+  document.querySelectorAll('[data-chap]').forEach(function(s){cio.observe(s);});
+  var ticking=false;
+  addEventListener('scroll',function(){ if(ticking)return; ticking=true; rid(function(){
+    var h=doc.scrollHeight-innerHeight; bar.style.transform='scaleX('+(h>0?scrollY/h:0)+')'; ticking=false; }); },{passive:true});
+})();
+</script>
+
+</body>
+</html>
