@@ -199,6 +199,10 @@ footer{padding-block:30px;display:flex;justify-content:space-between;flex-wrap:w
   .bar span:last-child{display:none}
   h2{font-size:clamp(32px,9.4vw,46px)}
   .hero h1{font-size:clamp(40px,11.2vw,58px)}
+  /* «Scorri» al centro, sotto il testo della copertina, senza toccarlo */
+  .hero .inner{padding-bottom:120px}
+  .scroll-hint{right:auto;left:50%;transform:translateX(-50%);bottom:calc(22px + env(safe-area-inset-bottom,0px));text-align:center;padding-left:.3em}
+  .scroll-hint::after{height:34px;margin-top:10px}
   .lusso h2{font-size:clamp(38px,10.6vw,58px)}
   p{text-wrap:pretty}
   .cap{padding-block:56px}
