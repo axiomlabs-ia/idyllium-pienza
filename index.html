@@ -10,7 +10,7 @@
 <style>html{color-scheme:light}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 <title>Idyllium Pienza</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,500&display=swap">
 <style>
 /* Layout: racconto verticale a capitoli; foto e video sempre in 9:16 con la stessa distanza (--d) fra loro e dai bordi,
    fondi pieni a tutto schermo per i momenti d'apertura. Un solo aspetto, chiaro, come la brochure. */
@@ -26,9 +26,9 @@ html{scroll-behavior:smooth}
 body{background:var(--panna);color:var(--testo);font-family:var(--corpo);font-weight:300;font-size:17px;line-height:1.65;
   padding-left:max(0px,env(safe-area-inset-left,0px));padding-right:max(0px,env(safe-area-inset-right,0px))}
 *{box-sizing:border-box}
-h1,h2,h3{font-family:var(--display);font-weight:300;color:var(--inchiostro);margin:0;line-height:1.04;text-wrap:balance}
+h1,h2,h3{font-family:var(--display);font-weight:500;color:var(--inchiostro);margin:0;line-height:1.04;text-wrap:balance}
 h2{font-size:clamp(40px,5.4vw,78px)}
-h3{font-size:clamp(26px,2.3vw,34px)}
+h3{font-size:clamp(26px,2.3vw,34px);font-weight:600}
 p{margin:0;max-width:62ch}
 .kicker{font-family:var(--corpo);font-weight:400;font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:var(--grigio)}
 .wrap{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
@@ -91,7 +91,7 @@ video::-webkit-media-controls-start-playback-button,video::-webkit-media-control
 .tab{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
 .tab th{font-weight:400;font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--grigio);text-align:left;padding:0 12px 12px 0}
 .tab td{border-top:1px solid rgba(66,66,66,.18);padding:15px 12px 15px 0;vertical-align:top}
-.tab td:first-child{font-family:var(--display);font-size:22px;color:var(--inchiostro);font-weight:400;white-space:nowrap}
+.tab td:first-child{font-family:var(--display);font-size:22px;color:var(--inchiostro);font-weight:600;white-space:nowrap}
 .tab tr:last-child td{border-bottom:1px solid rgba(66,66,66,.18)}
 .tabwrap{overflow-x:auto;min-width:0}
 .nota{font-size:14.5px;color:var(--testo)}
@@ -119,7 +119,7 @@ video::-webkit-media-controls-start-playback-button,video::-webkit-media-control
 .contatti{align-items:center}
 .contatti dl{display:grid;grid-template-columns:auto minmax(0,1fr);gap:14px 34px;margin:34px 0 0}
 .contatti dt{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--pietra);font-weight:400;padding-top:5px}
-.contatti dd{margin:0;font-family:var(--display);font-size:clamp(22px,2.2vw,30px);color:var(--panna);user-select:all}
+.contatti dd{margin:0;font-family:var(--display);font-weight:500;font-size:clamp(22px,2.2vw,30px);color:var(--panna);user-select:all}
 .contatti dd a{color:inherit;text-decoration:none;border-bottom:1px solid rgba(243,236,223,.4)}
 footer{padding-block:30px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--grigio)}
 
@@ -160,12 +160,12 @@ footer{padding-block:30px;display:flex;justify-content:space-between;flex-wrap:w
   .pm h2{margin:.35em 0 .3em}
   .pm>p{margin:0 0 26px;color:var(--testo)}
   .pm svg{width:100%;height:auto;display:block;overflow:visible}
-  .pm svg text{font-family:var(--display);fill:var(--inchiostro)}
+  .pm svg text{font-family:var(--display);font-weight:500;fill:var(--inchiostro)}
   .pm .cap1{font-size:13.5px;letter-spacing:.16em}
   .pm .it{font-style:italic;font-size:14px;fill:var(--testo)}
   .pm .n{font-size:15px}
   .pm ol{list-style:none;margin:26px 0 0;padding:16px 0 0;border-top:1px solid rgba(66,66,66,.18);display:grid;gap:8px}
-  .pm li{font-family:var(--display);font-size:19px;color:var(--inchiostro);display:flex;gap:12px}
+  .pm li{font-family:var(--display);font-weight:500;font-size:19px;color:var(--inchiostro);display:flex;gap:12px}
   .pm li b{font-weight:400;color:var(--rosso);min-width:12px}
   .pm li.r2{color:var(--rosso)}
 }
