@@ -15,7 +15,7 @@
 /* Layout: racconto verticale a capitoli; foto e video sempre in 9:16 con la stessa distanza (--d) fra loro e dai bordi,
    fondi pieni a tutto schermo per i momenti d'apertura. Un solo aspetto, chiaro, come la brochure. */
 :root{
-  --panna:#f3ecdf; --pietra:#e7decc; --inchiostro:#3a3c3f; --testo:#55575a; --grigio:#8a8886; --rosso:#a33a2b;
+  --panna:#ede2cc; --pietra:#e3d6bd; --inchiostro:#3a3c3f; --testo:#55575a; --grigio:#8a8886; --rosso:#a33a2b;
   --notte:#303235; --velo:rgba(48,50,53,.55);
   --display:"Cormorant Garamond","GT Sectra Display",Georgia,serif;
   --corpo:"Cormorant Garamond",Georgia,serif;
@@ -189,6 +189,11 @@ footer{padding-block:30px;display:flex;justify-content:space-between;flex-wrap:w
 .cardtxt h2{color:var(--inchiostro);font-size:clamp(34px,3.4vw,52px)}
 .cardtxt .kicker{color:var(--grigio)}
 .cardtxt p{color:var(--testo)}
+.cardtxt .soon{margin-top:18px;padding-top:22px;border-top:1px solid rgba(58,60,63,.18)}
+.cardtxt .soon .kicker{color:var(--rosso)}
+.cardtxt .soon ul{list-style:none;margin:14px 0 0;padding:0;display:grid;gap:10px}
+.cardtxt .soon li{font-style:italic;color:var(--inchiostro);font-size:clamp(18px,1.45vw,22px);line-height:1.3}
+.pmimg{width:100%;height:auto;display:block;margin:6px 0 18px}
 .vign::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(to bottom,rgba(48,50,53,.75),rgba(48,50,53,0) 26%,rgba(48,50,53,0) 74%,rgba(48,50,53,.75))}
 
 /* telefono */
@@ -253,10 +258,10 @@ footer{padding-block:30px;display:flex;justify-content:space-between;flex-wrap:w
 </header>
 
 <!-- 02 piccola e immensa -->
-<section class="full lusso" data-chap="Piccola e immensa">
+<section class="full lusso" data-chap="Piccola e Immensa">
   <div class="m zoom r"><video data-src="media/lusso.mp4" poster="media/lusso.jpg" muted autoplay loop playsinline preload="none"></video></div>
   <div class="inner wrap" style="padding-block:14vh">
-    <h2 class="r">Piccola e immensa.</h2>
+    <h2 class="r">Piccola e Immensa.</h2>
     <hr class="r d1">
     <p class="r d2">Piccola e immensa Val&nbsp;d’Orcia. Qui si affaccia meravigliosamente Idyllium. Nelle scuderie quattrocentesche di Palazzo Piccolomini, nel centro storico di Pienza, patrimonio UNESCO; Idyllium racconta cucina, vini e mixology che nascono dalla ricchezza del territorio.</p>
   </div>
@@ -280,8 +285,8 @@ footer{padding-block:30px;display:flex;justify-content:space-between;flex-wrap:w
       <div class="rule r d1"></div>
       <p class="r d2">Immersa nel panorama della valle, davanti un orizzonte che va da Radicofani a Montalcino.</p>
     </div>
-    <div class="m v916 r"><video data-src="media/gal_lucine.mp4" poster="media/gal_lucine.jpg" muted autoplay loop playsinline preload="none"></video></div>
-    <div class="m v916 r d1"><video data-src="media/terrazza_valle.mp4" poster="media/terrazza_valle.jpg" muted autoplay loop playsinline preload="none"></video></div>
+    <div class="m v916 r"><video data-src="media/terrazza_valle.mp4" poster="media/terrazza_valle.jpg" muted autoplay loop playsinline preload="none"></video></div>
+    <div class="m v916 r d1"><video data-src="media/gal_lucine.mp4" poster="media/gal_lucine.jpg" muted autoplay loop playsinline preload="none"></video></div>
   </div>
 </section>
 <section class="cap bleed" data-chap="Gli spazi">
@@ -291,7 +296,7 @@ footer{padding-block:30px;display:flex;justify-content:space-between;flex-wrap:w
     <div class="txt">
       <span class="kicker r">Gli spazi</span>
       <h2 class="r d1">Le sale interne</h2>
-      <p class="r d2">Sono il cuore segreto di architetture concepite da Rossellino.</p>
+      <p class="r d2">Il cuore segreto di architetture concepite dal Rossellino.</p>
     </div>
   </div>
 </section>
@@ -307,7 +312,7 @@ footer{padding-block:30px;display:flex;justify-content:space-between;flex-wrap:w
     <div class="txt">
       <span class="kicker r">La visione</span>
       <h2 class="r d1">La cucina</h2>
-      <p class="r d2">Materie prime della Val&nbsp;d’Orcia, ingredienti cercati uno a uno nelle stagioni e nel tempo che ogni piatto richiede.</p>
+      <p class="r d2">Le materie prime vengono tutte dall’orizzonte della Terrazza. Ingredienti cercati uno a uno nelle stagioni e nel tempo che ogni piatto richiede.</p>
     </div>
     <div class="m v916 r"><video data-src="media/cucina_chef.mp4" poster="media/cucina_chef.jpg" muted autoplay loop playsinline preload="none"></video></div>
     <div class="m v916 r d1"><video data-src="media/cucina_calice.mp4" poster="media/cucina_calice.jpg" muted autoplay loop playsinline preload="none"></video></div>
@@ -333,13 +338,13 @@ footer{padding-block:30px;display:flex;justify-content:space-between;flex-wrap:w
       <p class="r d3"><em>Tra i primi 500 cocktail bar del mondo.</em></p>
     </div>
     <div class="m v916 r"><video data-src="media/mix_barman.mp4" poster="media/mix_barman.jpg" muted autoplay loop playsinline preload="none"></video></div>
-    <div class="m v916 r d1"><video data-src="media/mix_spritz.mp4" poster="media/mix_spritz.jpg" muted autoplay loop playsinline preload="none"></video></div>
+    <div class="m v916 r d1"><video data-src="media/mix_pomodoro.mp4" poster="media/mix_pomodoro.jpg" muted autoplay loop playsinline preload="none"></video></div>
   </div>
 </section>
 
 <!-- 06 la pianta di Pienza -->
 <section class="cap" id="pianta" data-chap="La pianta di Pienza" style="padding-bottom:20px">
-  <div class="pianta r"><img src="img/pianta_pienza_4.jpg" alt="Pianta di Pienza dal Catasto Generale Toscano (Leopoldino), 1820–1830 circa: il borgo è lungo 400 metri e largo 200; con Idyllium, Palazzo Piccolomini, il Duomo, Piazza Pio II, le porte e i parcheggi" loading="lazy"></div>
+  <div class="pianta r"><img src="img/pianta_pienza_5.jpg" alt="Pianta di Pienza dal Catasto Generale Toscano (Leopoldino), 1820–1830 circa: il borgo è lungo 400 metri e largo 200; con Idyllium, Palazzo Piccolomini, il Duomo, Piazza Pio II, le porte e i parcheggi" loading="lazy"></div>
 </section>
 
 <!-- 07 capienze e pianta delle sale -->
@@ -364,55 +369,16 @@ footer{padding-block:30px;display:flex;justify-content:space-between;flex-wrap:w
     <div class="k">Gli spazi</div>
     <h2>La pianta</h2>
     <p>Le sale Ammannati e Forteguerri comunicano fra loro e si aprono sulla terrazza Gozzante.</p>
-    <svg viewBox="0 0 360 520" role="img" aria-label="Pianta indicativa: Palazzo Piccolomini in alto; sotto le sale Ammannati (55 mq) e Forteguerri (60 mq), con volte a crociera su una colonna centrale, unite da un arco; due passaggi portano alla terrazza Gozzante (60 mq) sulla Val d’Orcia; a sinistra Via Gozzante con l’ingresso">
-      <rect x="4" y="58" width="24" height="412" fill="#e9e1d2"/>
-      <text class="cap1" transform="translate(20 264) rotate(-90)" text-anchor="middle" style="font-size:11px;fill:#8d877d">VIA GOZZANTE</text>
-      <rect x="28" y="196" width="18" height="44" fill="#efe8db"/>
-      <rect x="44" y="4" width="312" height="70" fill="#ddd3c3"/>
-      <text class="cap1" x="200" y="36" text-anchor="middle">PALAZZO PICCOLOMINI</text>
-      <text class="it" x="200" y="56" text-anchor="middle">la loggia e il giardino pensile</text>
-      <g fill="#f8f3ea"><rect x="46" y="104" width="141" height="228"/><rect x="213" y="104" width="141" height="228"/></g>
-      <g stroke="#8a8886" stroke-width=".6" stroke-dasharray="3 3" fill="none">
-        <path d="M46 218H187M116.5 104V332M46 104L187 332M187 104L46 332M46 104L116.5 218M213 218H354M283.5 104V332M213 104L354 332M354 104L213 332"/>
-      </g>
-      <g fill="#3a3c3f"><circle cx="116.5" cy="218" r="6"/><circle cx="283.5" cy="218" r="6"/></g>
-      <g fill="none" stroke="#3a3c3f" stroke-width="3.4"><rect x="46" y="104" width="141" height="228"/><rect x="213" y="104" width="141" height="228"/></g>
-      <rect x="185" y="196" width="30" height="44" fill="#f8f3ea"/>
-      <path d="M187 196H213M187 240H213" stroke="#3a3c3f" stroke-width="1.2"/>
-      <rect x="44" y="199" width="5" height="38" fill="#efe8db"/>
-      <g fill="#efe8db"><rect x="70" y="330" width="34" height="30"/><rect x="296" y="330" width="34" height="30"/></g>
-      <path d="M70 334V358M104 334V358M296 334V358M330 334V358" stroke="#3a3c3f" stroke-width="1"/>
-      <rect x="46" y="358" width="308" height="92" fill="#efe5d4" stroke="#c46a5c" stroke-width="1.3"/>
-      <rect x="46" y="446" width="308" height="6" fill="#b9503f"/>
-      <rect x="66" y="268" width="101" height="50" fill="#f8f3ea"/><rect x="233" y="268" width="101" height="50" fill="#f8f3ea"/>
-      <text class="cap1" x="116" y="285" text-anchor="middle">SALA</text>
-      <text class="cap1" x="116" y="301" text-anchor="middle">AMMANNATI</text>
-      <text class="it" x="116" y="316" text-anchor="middle">55 mq</text>
-      <text class="cap1" x="284" y="285" text-anchor="middle">SALA</text>
-      <text class="cap1" x="284" y="301" text-anchor="middle">FORTEGUERRI</text>
-      <text class="it" x="284" y="316" text-anchor="middle">60 mq</text>
-      <text class="cap1" x="200" y="400" text-anchor="middle">TERRAZZA GOZZANTE</text>
-      <text class="it" x="200" y="421" text-anchor="middle">60 mq</text>
-      <rect x="60" y="474" width="296" height="30" fill="#e9e1d2"/>
-      <text class="it" x="208" y="494" text-anchor="middle">la Val d’Orcia, oltre il muro</text>
-      <g fill="#f3ecdf" stroke="#bdb5a8" stroke-width="1">
-        <circle cx="68" cy="126" r="13"/><circle cx="235" cy="126" r="13"/>
-        <circle cx="200" cy="218" r="13"/><circle cx="68" cy="380" r="13"/>
-      </g>
-      <g class="n" text-anchor="middle">
-        <text x="68" y="131">1</text><text x="235" y="131">2</text>
-        <text x="200" y="223">3</text><text x="68" y="385">4</text>
-      </g>
-    </svg>
+    <img class="pmimg" src="img/pianta_sale_m.jpg" alt="Pianta indicativa in stile catasto leopoldino: Palazzo Piccolomini in alto; le sale Ammannati (55 mq) e Forteguerri (60 mq) con volte a crociera su colonne lungo i muri, unite in alto da un tunnel; due passaggi portano alla terrazza Gozzante (60 mq) sulla Val d’Orcia; a sinistra Via Gozzante con l’ingresso" loading="lazy">
     <ol>
       <li><b>1</b>La sala Ammannati, 55 mq</li>
       <li><b>2</b>La sala Forteguerri, 60 mq</li>
-      <li class="r2"><b>3</b>L’arco di comunicazione tra le sale</li>
+      <li class="r2"><b>3</b>Il tunnel di collegamento tra le sale</li>
       <li class="r2"><b>4</b>La terrazza Gozzante, 60 mq</li>
     </ol>
     <p class="nota"><em>Schema indicativo, non in scala. Sale con volte a crociera quattrocentesche su colonne in pietra.</em></p>
   </div>
-  <div class="pianta sale r"><img src="img/pianta_sale_2.jpg" alt="La pianta indicativa: la sala Ammannati 55 mq e la sala Forteguerri 60 mq con volte a crociera su colonne, l’arco di comunicazione tra le sale, i passaggi verso la terrazza Gozzante 60 mq, l’ingresso da Via Gozzante" loading="lazy"></div>
+  <div class="pianta sale r"><img src="img/pianta_sale_3.jpg" alt="La pianta indicativa: la sala Ammannati 55 mq e la sala Forteguerri 60 mq con volte a crociera su colonne, il tunnel di collegamento tra le sale, i passaggi verso la terrazza Gozzante 60 mq, l’ingresso da Via Gozzante" loading="lazy"></div>
 </section>
 
 <!-- 08 menu e set up -->
@@ -448,20 +414,21 @@ footer{padding-block:30px;display:flex;justify-content:space-between;flex-wrap:w
 </section>
 <section data-chap="Le esperienze">
   <div class="tre" style="padding-top:clamp(48px,8vh,90px)">
-    <article class="card r"><div class="m v916"><video data-src="media/esp_croce.mp4" poster="media/esp_croce.jpg" muted autoplay loop playsinline preload="none"></video></div>
-      <div class="cbody"><span class="num">01</span><h3>Il Papa della Luce</h3><span class="tag">Indoor · 2h30</span><p>Uno storico dell’arte racconta la vita nascosta di Papa Pio II e della sua città ideale, durante il convivio da Idyllium.</p></div></article>
-    <article class="card r d1"><div class="m v916"><video data-src="media/esp_mixology.mp4" poster="media/esp_mixology.jpg" muted autoplay loop playsinline preload="none"></video></div>
-      <div class="cbody"><span class="num">02</span><h3>Fine Mixology nelle Scuderie del Papa</h3><span class="tag">Indoor · 3h · fino a 8 ospiti</span><p>Cocktail Masterclass con il Master Bartender.</p></div></article>
-    <div class="cardtxt r d2"><span class="kicker">Le esperienze</span><h2>Dentro il Palazzo</h2><p>Nel palazzo di Pio II e nelle sue scuderie.</p></div>
+    <div class="cardtxt r"><h2>Esperienze</h2><p>Nel palazzo di Pio II e nella Val&nbsp;d’Orcia, durante tutto l’anno.</p>
+      <div class="soon"><span class="kicker">Coming soon</span>
+        <ul><li>Nella boutique vintage tra le prime dieci al mondo</li><li>Cavalcando in Val&nbsp;d’Orcia</li><li>In bicicletta sulle colline e sotto il cielo</li><li>Landscape Painting Masterclass</li></ul></div></div>
+    <article class="card r d1"><div class="m v916"><video data-src="media/esp_erbe2.mp4" poster="media/esp_erbe2.jpg" muted autoplay loop playsinline preload="none"></video></div>
+      <div class="cbody"><span class="num">01</span><h3>Erbe Eccelse della Val&nbsp;d’Orcia</h3><span class="tag">Outdoor · 4h</span><p>Passeggiata botanica alla scoperta delle erbe spontanee commestibili.</p></div></article>
+    <article class="card r d2"><div class="m v916"><video data-src="media/esp_papa_luce.mp4" poster="media/esp_papa_luce.jpg" muted autoplay loop playsinline preload="none"></video></div>
+      <div class="cbody"><span class="num">02</span><h3>Il Papa della Luce</h3><span class="tag">Indoor · 2h30</span><p>Uno storico dell’arte racconta la vita nascosta di Papa Pio II e della sua città ideale, durante il convivio da Idyllium.</p></div></article>
   </div>
-  <div class="grptitle"><span class="kicker r">Le esperienze</span><h2 class="r d1">Nella Valle</h2><p class="r d2">Nella Val&nbsp;d’Orcia, durante tutto l’anno.</p></div>
-  <div class="tre" style="padding-top:0">
-    <article class="card r"><div class="m v916"><video data-src="media/esp_erbe2.mp4" poster="media/esp_erbe2.jpg" muted autoplay loop playsinline preload="none"></video></div>
-      <div class="cbody"><span class="num">03</span><h3>Erbe Eccelse della Val&nbsp;d’Orcia</h3><span class="tag">Outdoor · 4h</span><p>Passeggiata botanica alla scoperta delle erbe spontanee commestibili.</p></div></article>
-    <article class="card r d1"><div class="m v916"><video data-src="media/esp_eden.mp4" poster="media/esp_eden.jpg" muted autoplay loop playsinline preload="none"></video></div>
-      <div class="cbody"><span class="num">04</span><h3>I Campi dell’Eden</h3><span class="tag">Outdoor · 3h30</span><p>Tra i sentieri della Val&nbsp;d’Orcia con Beppe Bussu, cheese master. Verticale di pecorini affinati con Brunello di Montalcino.</p></div></article>
-    <article class="card r d2"><div class="m v916"><video data-src="media/esp_vigneti.mp4" poster="media/esp_vigneti.jpg" muted autoplay loop playsinline preload="none"></video></div>
-      <div class="cbody"><span class="num">05</span><h3>Vigneti e vini in cima al mondo</h3><span class="tag">Outdoor · 3h30</span><p>Visita e tasting alla cantina Casanova di Neri a Montalcino, poi convivio a Pienza con lo Chef Perna.</p></div></article>
+  <div class="tre" style="padding-top:var(--d)">
+    <article class="card r"><div class="m v916"><video data-src="media/esp_eden.mp4" poster="media/esp_eden.jpg" muted autoplay loop playsinline preload="none"></video></div>
+      <div class="cbody"><span class="num">03</span><h3>I Campi dell’Eden</h3><span class="tag">Outdoor · 3h30</span><p>Tra i sentieri della Val&nbsp;d’Orcia con Beppe Bussu, cheese master. Verticale di pecorini affinati con Brunello di Montalcino.</p></div></article>
+    <article class="card r d1"><div class="m v916"><video data-src="media/esp_vigneti.mp4" poster="media/esp_vigneti.jpg" muted autoplay loop playsinline preload="none"></video></div>
+      <div class="cbody"><span class="num">04</span><h3>Vigneti e vini in cima al mondo</h3><span class="tag">Outdoor · 3h30</span><p>Visita e tasting alla cantina Casanova di Neri a Montalcino, poi convivio a Pienza con lo Chef Perna.</p></div></article>
+    <article class="card r d2"><div class="m v916"><video data-src="media/esp_mixology.mp4" poster="media/esp_mixology.jpg" muted autoplay loop playsinline preload="none"></video></div>
+      <div class="cbody"><span class="num">05</span><h3>Cocktail Masterclass</h3><span class="tag">Indoor · 3h · fino a 8 ospiti</span><p>Fine Mixology nelle Scuderie del Papa, con il Master Bartender.</p></div></article>
   </div>
 </section>
 
